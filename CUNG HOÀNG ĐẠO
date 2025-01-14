@@ -1,0 +1,28 @@
+t = int(input())
+while t > 0:
+    d,th = [int(x) for x in input().split()]
+    if (th == 1 and d >= 20) or (th == 2 and d <= 18):
+        print("Bao Binh")
+    elif (th == 2 and d >= 19) or (th == 3 and d <= 20):
+        print("Song Ngu")
+    elif (th == 3 and d >= 21) or (th == 4 and d <= 19):
+        print("Bach Duong")
+    elif (th == 4 and d >= 20) or (th == 5 and d <= 20):
+        print("Kim Nguu")
+    elif (th == 5 and d >= 21) or (th == 6 and d <= 20):
+        print("Song Tu")
+    elif (th == 6 and d >= 21) or (th == 7 and d <= 22):
+        print("Cu Giai")
+    elif (th == 7 and d >= 23) or (th == 8 and d <= 22):
+        print("Su Tu")
+    elif (th == 8 and d >= 23) or (th == 9 and d <= 22):
+        print("Xu Nu")
+    elif (th == 9 and d >= 23) or (th == 10 and d <= 22):
+        print("Thien Binh")
+    elif (th == 10 and d >= 23) or (th == 11 and d <= 22):
+        print("Thien Yet")
+    elif (th == 11 and d >= 23) or (th == 12 and d <= 21):
+        print("Nhan Ma")
+    else:
+        print("Ma Ket")
+    t -= 1
