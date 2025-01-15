@@ -1,0 +1,10 @@
+t = int(input())
+while t > 0:
+    n = input()
+    check = True
+    for x in range(len(n)):
+        if n[x] != '4' and n[x] != '7':
+            check = False
+            break
+    print("YES") if check else print("NO")
+    t -= 1
