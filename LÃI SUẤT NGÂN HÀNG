@@ -1,0 +1,14 @@
+def tinhlai(n,x,m,cnt):
+    if n >= m:
+        return cnt
+
+    l = n*(x/100)
+    n += l
+    return tinhlai(n,x,m,cnt+1)
+
+
+t = int(input())
+while t > 0:
+    N,X,M = [float(x) for x in input().split()]
+    print(tinhlai(N,X,M,0))
+    t -= 1
