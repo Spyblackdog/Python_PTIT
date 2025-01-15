@@ -1,0 +1,6 @@
+s = input()
+low = 0
+for x in range(len(s)):
+    if s[x].islower():
+        low += 1
+print(s.lower()) if low >= len(s) - low else print(s.upper())
