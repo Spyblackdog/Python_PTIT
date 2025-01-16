@@ -1,0 +1,22 @@
+import math
+
+def tong(n):
+    s = 0
+    for _ in n:
+        s += int(_)
+    if s % 10 == 0:
+        return True
+
+    return False
+
+def check(n):
+    for k in range(len(n)-1):
+        if abs(int(n[k]) - int(n[k+1])) != 2:
+            return False
+
+    return True
+
+for i in range(int(input())):
+    n = input()
+    print("YES") if tong(n) and check(n) else print("NO")
+
