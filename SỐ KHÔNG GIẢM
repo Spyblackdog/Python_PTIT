@@ -1,0 +1,8 @@
+for i in range(int(input())):
+    s = input()
+    check = True
+    for x in range(len(s)-1):
+        if s[x] > s[x + 1]:
+            check = False
+            break
+    print("YES") if check else print("NO")
