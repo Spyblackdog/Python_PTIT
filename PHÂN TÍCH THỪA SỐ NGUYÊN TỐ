@@ -1,0 +1,15 @@
+import math
+
+for i in range(int(input())):
+    N = int(input())
+    s = '1'
+    for x in range(2,int(math.sqrt(N)+1)):
+        cnt = 0
+        while N % x == 0:
+            N //= x
+            cnt += 1
+        if cnt != 0:
+            s = s + ' * ' + str(x) + '^' +str(cnt)
+    if N != 1:
+        s = s + ' * ' + str(N) + '^1'
+    print(s)
