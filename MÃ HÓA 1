@@ -1,0 +1,12 @@
+for i in range(int(input())):
+    s = input()
+    x = 0
+    while x < len(s):
+        temp = s[x]
+        x += 1
+        cnt = 1
+        while x < len(s) and s[x] == temp:
+            x += 1
+            cnt += 1
+        print(cnt,temp,sep ='',end='')
+    print()
