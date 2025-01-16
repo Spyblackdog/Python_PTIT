@@ -1,0 +1,12 @@
+import math
+
+check = False
+a,k,n = [int(x) for x in input().split()]
+m = math.ceil((a + 1)/k)
+for i in range(m,(a+n)//k+1):
+    b = i * k - a
+    if b > 0 and a + b <= n:
+        check = True
+        print(b,end = ' ')
+if check == False:
+    print(-1)
