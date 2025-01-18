@@ -1,0 +1,19 @@
+def gcd(a,b):
+    if b == 0:
+        return a
+
+    return gcd(b,a%b)
+
+s1,s2 = [int(x) for x in input().split()]
+limit = pow(10,s2-1)
+k = pow(10,s2) - 1
+cnt = 0
+for x in range(limit,k):
+    if gcd(x,s1) == 1:
+        if cnt != 9:
+            print(x,end = ' ')
+            cnt += 1
+        else:
+            print(x)
+            cnt = 0
+
