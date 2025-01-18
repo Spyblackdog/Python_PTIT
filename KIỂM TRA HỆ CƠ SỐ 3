@@ -1,0 +1,11 @@
+for _ in range(int(input())):
+    s = input()
+    check = False
+    for x in s:
+        if x not in ['0','1','2']:
+            check = True
+            break
+    if check:
+        print("NO")
+    else:
+        print("YES")
