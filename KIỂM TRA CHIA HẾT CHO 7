@@ -1,0 +1,20 @@
+for _ in range(int(input())):
+    n = input()
+    cnt = 0
+    check = False
+    if int(n) % 7 == 0:
+        print(n)
+        continue
+    while int(n) % 7 != 0 or cnt <= 999:
+        cnt += 1
+        n = str(n)
+        n1 = n[::-1]
+        n = int(n) + int(n1)
+        if n % 7 == 0:
+            check = True
+            print(n)
+            break
+    if check == False:
+        print(-1)
+    n = 0
+
