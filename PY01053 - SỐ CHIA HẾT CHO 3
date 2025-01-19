@@ -1,0 +1,16 @@
+"""from math import sqrt
+
+def check(n):
+    su = 0
+    for x in n:
+        su += int(x)
+    if su <= 1:
+        return False
+    for x in range(2,int(sqrt(su))+1):
+        if su % x == 0:
+            return False
+
+    return True"""
+
+for _ in range(int(input())):
+    print("YES") if int(input()) % 3 == 0 else print("NO")
