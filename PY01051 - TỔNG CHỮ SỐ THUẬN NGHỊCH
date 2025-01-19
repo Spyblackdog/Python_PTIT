@@ -1,0 +1,19 @@
+from math import sqrt
+
+def check(n):
+    su = 0
+    for x in n:
+        su += int(x)
+    if len(str(su)) <= 1:
+        return False
+    if str(su) != str(su)[::-1]:
+        return False
+
+    return True
+
+for _ in range(int(input())):
+    s = input()
+    if check(s):
+        print("YES")
+    else:
+        print("NO")
