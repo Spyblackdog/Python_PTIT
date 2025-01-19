@@ -1,0 +1,20 @@
+from math import sqrt
+
+def check(n):
+    if n <= 1:
+        return False
+    for x in range(2,int(sqrt(n))+1):
+        if n % x == 0:
+            return False
+
+    return True
+
+
+for _ in range(int(input())):
+    s = input()
+    n = 0
+    n += int(s[-4])*1000 + int(s[-3])*100 + int(s[-2])*10 + int(s[-1])
+    if check(n):
+        print("YES")
+    else:
+        print("NO")
