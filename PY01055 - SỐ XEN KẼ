@@ -1,0 +1,22 @@
+for _ in range(int(input())):
+    s = input()
+    if len(s) % 2 == 0:
+        print("NO")
+    else:
+        if s[0] != s[1]:
+            temp = s[0]
+            check = True
+            for x in range(0,len(s),2):
+                if s[x] != temp or s[-1] != temp:
+                    check = False
+                    break
+            if check:
+                print("YES")
+            else:
+                print("NO")
+        else:
+            print("NO")
+
+
+
+""" By Mai Hong Vu """
