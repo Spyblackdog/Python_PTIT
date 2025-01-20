@@ -1,0 +1,30 @@
+from math import sqrt
+
+def prime(n):
+    if n <= 1:
+        return False
+    for x in range(2,int(sqrt(n)+1)):
+        if n % x == 0:
+            return False
+
+    return True
+
+def check(n):
+    for i in range(len(n)):
+        if prime(i) and prime(int(n[i])) == False:
+            return False
+        if prime(i) == False and prime(int(n[i])):
+            return False
+
+    return True
+
+
+for _ in range(int(input())):
+    st = input()
+    if check(st):
+        print("YES")
+    else:
+        print("NO")
+
+
+""" By Mai Hong Vu """
