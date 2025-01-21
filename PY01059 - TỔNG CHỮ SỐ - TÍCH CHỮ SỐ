@@ -1,0 +1,22 @@
+for _ in range(int(input())):
+    st = input()
+    check = 0
+    sum1 = 0
+    sum2 = 1
+    cnt = 0
+    for x in range(len(st)):
+        if x % 2 == 0:
+            sum1 += int(st[x])
+        if x % 2 != 0:
+            check += 1
+            if int(st[x]) == 0:
+                cnt += 1
+            else:
+                sum2 *= int(st[x])
+    print(sum1,end = ' ')
+    if check == cnt:
+        print(0)
+    else:
+        print(sum2)
+
+""" By Mai Hong Vu """
