@@ -1,0 +1,21 @@
+from math import sqrt
+
+def prime(n):
+    if n <= 1:
+        return False
+    for x in range(2,int(sqrt(int(n))+1)):
+        if n % x == 0:
+            return False
+
+    return True
+
+for _ in range(int(input())):
+    st = input()
+    sum1 = int(st[0])*100 + int(st[1])*10 + int(st[2])
+    sum2 = int(st[-3])*100 + int(st[-2])*10 + int(st[-1])
+    if prime(sum1) and prime(sum2):
+        print("YES")
+    else:
+        print("NO")
+
+""" By Mai Hong Vu """
