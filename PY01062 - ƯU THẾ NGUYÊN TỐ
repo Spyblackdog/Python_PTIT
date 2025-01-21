@@ -1,0 +1,27 @@
+import math
+
+def prime(n):
+    if n <= 1:
+        return False
+    for x in range(2,int(math.sqrt(n)+1)):
+        if n % x == 0:
+            return False
+
+    return True
+
+def check(n):
+    if prime(len(n)):
+        cnt = 0
+        for x in range(len(n)):
+            if prime(int(n[x])):
+                cnt += 1
+        if cnt > len(n)-1 - cnt:
+            print("YES")
+        else:
+            print("NO")
+    else:
+        print("NO")
+
+for _ in range(int(input())):
+    s = input()
+    check(s)
