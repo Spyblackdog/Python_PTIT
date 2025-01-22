@@ -1,0 +1,28 @@
+check = True
+
+def tohop(n,k,thislist,thislist2):
+    global check
+    for x in range(k):
+        print(thislist2[thislist[x]],end = ' ')
+    print()
+    j = k-1
+    while j >= 0 and thislist[j] == n - k + j:
+        j -= 1
+    if j >= 0:
+        thislist[j] += 1
+        for x in range(j+1,k):
+            thislist[x] = thislist[x-1] + 1
+    else:
+        check = False
+
+n,k = [int(x) for x in input().split()]
+s = input()
+thisset = set()
+for i in s.split():
+    thisset.add(int(i))
+n = len(thisset)
+thislist2 = list(thisset)
+thislist2.sort()
+thislist = list(range(k))
+while check:
+    tohop(n,k,thislist,thislist2)
