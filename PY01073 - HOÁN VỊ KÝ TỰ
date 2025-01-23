@@ -1,0 +1,8 @@
+from itertools import permutations
+
+s = input()
+l = list(s)
+n = len(s)
+Thislist = permutations(l,n)
+for x in Thislist:
+    print(''.join(x))
