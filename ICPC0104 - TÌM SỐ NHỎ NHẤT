@@ -1,0 +1,19 @@
+for _ in range(int(input())):
+    s = input()
+    Min = 1e10
+    sm = 0
+    for x in s:
+        if '0' <= x <= '9':
+            sm = sm*10 + int(x)
+        else:
+            if sm != 0 and sm < Min:
+                Min = sm
+            sm = 0
+    if sm != 0 and sm < Min:
+        Min = sm
+    print(Min)
+
+
+
+
+
