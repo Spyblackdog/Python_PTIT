@@ -1,0 +1,14 @@
+for _ in range(int(input())):
+    n,k = [int(x) for x in input().split()]
+    a = []
+    s = input()
+    for x in s.split():
+        a.append(x)
+    for i in range(k,len(a)):
+        print(a[i],end = ' ')
+    for j in range(0,k):
+        print(a[j],end = ' ')
+    print()
+
+
+
