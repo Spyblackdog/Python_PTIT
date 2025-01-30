@@ -1,0 +1,8 @@
+for _ in range(int(input())):
+    A = [1,1]
+    for x in range(2,93):
+        A.append(A[x-1] + A[x-2])
+    a,b = [int(x) for x in input().split()]
+    for i in range(a-1,b):
+        print(A[i],end = ' ')
+    print()
