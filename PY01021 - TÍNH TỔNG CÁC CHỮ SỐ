@@ -1,0 +1,14 @@
+for _ in range(int(input())):
+    s1 = list(input())
+    s1.sort()
+    cnt = 0
+    s2 = ""
+    for x in s1:
+        if '0' <= x <= '9':
+            cnt += int(x)
+        else:
+            s2 += x
+    s2 += str(cnt)
+    print(s2)
+
+
