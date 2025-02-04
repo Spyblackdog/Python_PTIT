@@ -4,6 +4,8 @@
           -join là phương thức thuộc str để nối các phần tử trong một list. Ví dụ "".join(s) nối các phần tử trong list s với ""
           -Trong set dùng issubset() để kiểm tra xem một set có là tập con của một tập hợp khác hay không 
           Ví dụ: A.issubset(B) trả về True nếu A là tập con của B ( Tất cả phần tử của A có trong B), False nếu ngược lại
+          Hàm str.upper() để in ra một xâu được in hoa tương tự hàm lower() để in ra xâu in thường
+          
           
           Bài tập tiêu biểu
           
