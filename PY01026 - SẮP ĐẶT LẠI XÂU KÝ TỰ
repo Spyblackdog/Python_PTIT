@@ -1,0 +1,6 @@
+for _ in range(int(input())):
+    s1 = list(input())
+    s2 = list(input())
+    s1_s = sorted(s1)
+    s2_s = sorted(s2)
+    print("Test ",_ + 1,": YES",sep='') if s1_s == s2_s else print("Test ",_ + 1,": NO",sep='')
