@@ -1,8 +1,8 @@
 # Python_code
-2/4/2025: NOTE: Trong Python xâu là giá trị bất biến không thể thay đổi bằng cách gán giá trị trực tiếp như list 
-          Cách để đổi string trong sang list s = list(input())
-          join là phương thức thuộc str để nối các phần tử trong một list. Ví dụ "".join(s) nối các phần tử trong list s với ""
-          Trong set dùng issubset() để kiểm tra xem một set có là tập con của một tập hợp khác hay không 
+2/4/2025: NOTE: Trong Python xâu là giá trị bất biến không thể thay đổi bằng cách gán giá trị trực tiếp như list
+          -Cách để đổi string trong sang list s = list(input())
+          -join là phương thức thuộc str để nối các phần tử trong một list. Ví dụ "".join(s) nối các phần tử trong list s với ""
+          -Trong set dùng issubset() để kiểm tra xem một set có là tập con của một tập hợp khác hay không 
           Ví dụ: A.issubset(B) trả về True nếu A là tập con của B ( Tất cả phần tử của A có trong B), False nếu ngược lại
           
           Bài tập tiêu biểu
