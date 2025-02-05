@@ -1,0 +1,13 @@
+s1 = input()
+s2 = input()
+s1 = set(s1.lower().split())
+s2 = set(s2.lower().split())
+union = s1 | s2
+intersection = s1 & s2
+union = sorted(union)
+intersection = sorted(intersection)
+for x in union:
+    print(x,end=' ')
+print()
+for i in intersection:
+    print(i,end=' ')
