@@ -1,0 +1,13 @@
+s = input()
+if len(s) % 3 == 1:
+    s = "00" + s
+elif len(s) % 3 == 2:
+    s = "0" + s
+octal = ""
+for x in range(0,len(s),3):
+    temp = s[x:x+3]
+    cnt = 0
+    for i in range(3):
+        cnt += int(temp[i])*(2**(3-i-1))
+    octal += str(cnt)
+print(octal)
