@@ -1,3 +1,4 @@
+Opiton 1:
 for i in range(int(input())):
     s = input()
     for x in range(len(s)-1):
@@ -5,4 +6,12 @@ for i in range(int(input())):
             for k in range(int(s[x+1])):
                 print(s[x],end='')
     print()
+Option 2:
+for _ in range(int(input())):
+    s = input()
+    st = ""
+    for x in range(len(s)-1,-1,-2):
+        for i in range(int(s[x])):
+            st = s[x-1] + st
+    print(st)
 
