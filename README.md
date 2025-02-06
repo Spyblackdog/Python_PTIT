@@ -37,3 +37,5 @@
 
 2/6/2025 : Để lấy index của một phần tử xuất hiện trong một chuỗi ta có thể dùng s.index(x)
            Lưu ý trong Python để chuyển 1 ký tự sang ASCII ta dùng ord() vì phép " - " không thể thực hiện trong str
+           Để in ra tổ hợp chập k của n trong python ta có thể dùng luôn hàm combinations(tập hợp, k) tập hợp có thể là list, tuple, ...
+           Để dùng combinations ta cầm import combinations từ thư viện itertools 
