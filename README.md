@@ -35,3 +35,5 @@
           Chuyển input sang list vì string không thể thay đổi trực tiếp giá trị 
           Duyệt từ cuối về đầu nếu giá trị >= 5 và không phải giá trị đầu tiên ta đổi thành 0 và cộng thêm 1 vào giá trị trước đó
 
+2/6/2025 : Để lấy index của một phần tử xuất hiện trong một chuỗi ta có thể dùng s.index(x)
+           Lưu ý trong Python để chuyển 1 ký tự sang ASCII ta dùng ord() vì phép " - " không thể thực hiện trong str
