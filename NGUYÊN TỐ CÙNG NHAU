@@ -1,19 +1,13 @@
-def gcd(a,b):
-    if b == 0:
-        return a
+from math import gcd
 
-    return gcd(b,a%b)
-
-s1,s2 = [int(x) for x in input().split()]
-limit = pow(10,s2-1)
-k = pow(10,s2) - 1
-cnt = 0
-for x in range(limit,k):
-    if gcd(x,s1) == 1:
-        if cnt != 9:
-            print(x,end = ' ')
-            cnt += 1
-        else:
-            print(x)
-            cnt = 0
-
+n,k = [int(x) for x in input().split()]
+l = 10**(k-1) # Tạo vị trí đầu tiên để duyệt
+r = 10**k -1 # Tạo vị trí cuối cùng đẻ duyệt đến
+cnt = 0 # Dùng cnt để mỗi dòng in ra đúng 10 số
+for i in range(l,r+1): # Duyệt từ l đến r
+    if gcd(n,i) == 1 and cnt < 9: # Nếu gcd 2 n và i bằng 1 và cnt < 9 1 dòng chưa in ra 10 số
+        print(i,end=' ') # In ra i với end =' '
+        cnt += 1 # Cộng cnt thêm 1 để đảm bảo mỗi dòng chỉ in ra 10 số
+    elif gcd(n,i) == 1 and cnt == 9: # Nếu đã in đủ 10 số 1 dòng in ra và xuống dòng sau đó reset cnt = 0
+        print(i)
+        cnt = 0
