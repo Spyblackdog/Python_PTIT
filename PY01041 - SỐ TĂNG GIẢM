@@ -1,0 +1,21 @@
+for _ in range(int(input())):
+    s = input() # Nhận vào input là một chuỗi
+    res = -1 # Biến res dùng để đánh dấu vị trí số đảo chiều chuyển sang giảm
+    for x in range(len(s)-1): # Dùng vòng lặp để tìm vị tri của res
+        if s[x] > s[x+1]:
+            res = x
+            break
+    if res == -1: # Nếu res = -1 tức là số chỉ tăng in ra NO
+        print("NO")
+    else: # Nếu số thỏa mãn tăng giảm ta kiếm tra xem phần giảm có thỏa mãn không và cả phần tăng có 2 số nào bằng nhau không
+        check1 = True # Nếu phần giảm không thỏa mãn check1 = False
+        check2 = True # Nếu phần tằng không thỏa mãn check2 = False
+        for i in range(res,len(s)-1): # Duyệt từ res đển cuối chuỗi để kiểm tra phần giảm
+            if s[i] <= s[i+1]: # Nếu trong phần giảm có số đứng sau lớn hơn số đứng trước chuyển check1 sang False và dừng vòng lặp
+                check1 = False
+                break
+        for j in range(res): # Nếu trong phần tăng có số đứng sau nhỏ hơn số đứng trước chuyển check1 sang False và dừng vòng lặp
+            if s[j] >= s[j+1]:
+                check2 = False
+                break
+        print("YES" if check1 and check2 else "NO") # Nếu cả check1 và check2 cùng True thì in ra YES ngược lại in ra NO
