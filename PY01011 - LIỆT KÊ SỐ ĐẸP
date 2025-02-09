@@ -1,0 +1,15 @@
+for _ in range(int(input())):
+    n = int(input())
+    # Nhập vào số n
+    num={'0','2','4','6','8'}
+    # Tạo một set chứa các số 0,2,4,6,8 vì đề yêu cầu số thỏa mãn chỉ chứa 0,2,4,6,8
+    for x in range(22,n,2):
+        if len(str(x))%2 == 0 and set(str(x)).issubset(num) and str(x) == str(x)[::-1]:
+            #len(str(x))%2 để kiểm tra số chữ số có phải số chẵn hay không
+            """ set(str(x)).issubset(num) hàm issubset(num) để kiểm tra xem một set có phải chỉ chứa các số trong num hay không 
+                trả về True nếu chỉ chứa các ký tự trong num còn không trả về False
+            """
+            #str(x) == str(x)[::-1] str(x) để chuyển x sang dạng string str(x)[::-1] đảo ngược x
+            print(x,end = ' ')
+    print()
+# Lưu ý đề có thể sai số chữ số phải là số chẵn
