@@ -1,30 +1,23 @@
-from math import sqrt
+from math import sqrt # import sqrt từ thư viện math
 
-def prime(n):
-    if n <= 1:
+def prime(n): # Dùng để kiểm tra một số có phải số nguyên tố hay không
+    if n <= 1: # Nếu n <= 1 trả về False
         return False
-    for x in range(2,int(sqrt(n)+1)):
-        if n % x == 0:
+    for x in range(2,int(sqrt(n)+1)): # Duyệt từ 2 đến căn bậc 2 của n
+        if n % x == 0:  # Nếu n chia hết cho x thì trả về False
             return False
 
-    return True
+    return True     # Nếu chạy đến đây trả về True
 
-def check(n):
-    if len(n) < 4:
+def check(a):   # Kiểm tra một chuỗi đầu vào có thỏa mãn điều kiện đề đưa ra hay không
+    if len(a) < 4:  # Nếu độ dài chuỗi a < 4 ta trả về False ngay lập tức
         return False
-    s = int(n[-4])*1000 + int(n[-3])*100 + int(n[-2])*10 + int(n[-1])
-    if prime(s) == False:
+    num = int(a[-4])*1000 + int(a[-3])*100 + int(a[-2])*10 + int(a[-1])     # Tính 4 số cuối của chuỗi
+    if not prime(num):  # Kiểm tra xem num có phải số nguyên tố hay không 
         return False
 
     return True
-
 
 for _ in range(int(input())):
-    st = input()
-    if check(st):
-        print("YES")
-    else:
-        print("NO")
-
-
-""" By Mai Hong Vu """
+    s = input()
+    print("YES" if check(s) else "NO")
