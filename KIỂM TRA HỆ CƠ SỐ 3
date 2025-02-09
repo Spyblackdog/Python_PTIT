@@ -1,11 +1,7 @@
 for _ in range(int(input())):
-    s = input()
-    check = False
-    for x in s:
-        if x not in ['0','1','2']:
-            check = True
-            break
-    if check:
-        print("NO")
-    else:
-        print("YES")
+    num = {'0','1','2'} # Tạo một set chứa các số mà đề yêu cầu trong hệ 3 ở đây là 0,1,2
+    print("YES" if set(input()).issubset(num) else "NO")
+    """
+    Đầu tiên ta chuyển input thành set sau đó dùng hàm issubset(num) để kiểm tra xem set được tạo ra có chỉ gồm các số trong num không 
+    Nếu chỉ gồm các số trong num hàm issubset sẽ trả về True ngược lại sẽ trả về False
+    """
