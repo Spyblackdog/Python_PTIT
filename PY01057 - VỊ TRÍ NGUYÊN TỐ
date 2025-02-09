@@ -1,30 +1,22 @@
-from math import sqrt
+from math import sqrt # import sqrt từ thư viện math
 
-def prime(n):
-    if n <= 1:
+def prime(n): # Dùng để kiểm tra một số có phải số nguyên tố hay không
+    if n <= 1: # Nếu n <= 1 trả về False
         return False
-    for x in range(2,int(sqrt(n)+1)):
-        if n % x == 0:
+    for x in range(2,int(sqrt(n)+1)): # Duyệt từ 2 đến căn bậc 2 của n
+        if n % x == 0:  # Nếu n chia hết cho x thì trả về False
             return False
 
-    return True
+    return True     # Nếu chạy đến đây trả về True
 
-def check(n):
-    for i in range(len(n)):
-        if prime(i) and prime(int(n[i])) == False:
-            return False
-        if prime(i) == False and prime(int(n[i])):
+def check(a):   # Kiểm tra một chuỗi đầu vào có thỏa mãn điều kiện đề đưa ra hay không
+    for x in range(len(a)):
+        if (prime(x) and not prime(int(a[x]))) or (not prime(x) and prime(int(a[x]))):  # Kiểm tra xem số đứng ở vị trí nguyên tố có phải số nguyên tố hay không
             return False
 
     return True
 
 
 for _ in range(int(input())):
-    st = input()
-    if check(st):
-        print("YES")
-    else:
-        print("NO")
-
-
-""" By Mai Hong Vu """
+    s = input()
+    print("YES" if check(s) else "NO")
