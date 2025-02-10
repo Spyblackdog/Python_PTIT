@@ -1,21 +1,19 @@
-from math import sqrt
+from math import sqrt # Từ thư viện math ta import sqrt()
 
-def prime(n):
-    if n <= 1:
+def prime(n): # Hàm dùng để kiểm tra xem một số có phải số nguyên tố hay không
+    if n <= 1: # Nếu số đó nhỏ hơn hoặc bằng 1 trả về False
         return False
-    for x in range(2,int(sqrt(int(n))+1)):
-        if n % x == 0:
+    for x in range(2,int(sqrt(n)+1)):   # Duyệt từ 2 đến căn bậc 2 của n vì sqrt() sẽ trả về số ở float ta cần chuyển về int
+        if n % x == 0:  # Nếu n chia hết cho x tức là có nhiều hơn 1 ước số trả về False
             return False
 
-    return True
+    return True     # Nếu chạy qua tất cả các điều kiện trên trả về True
 
-for _ in range(int(input())):
-    st = input()
-    sum1 = int(st[0])*100 + int(st[1])*10 + int(st[2])
-    sum2 = int(st[-3])*100 + int(st[-2])*10 + int(st[-1])
-    if prime(sum1) and prime(sum2):
-        print("YES")
-    else:
+for _ in range(int(input())):   # Duyệt tất cả các test
+    s = input()
+    if len(s) < 4:  # Nếu độ dài chuỗi nhỏ hơn
         print("NO")
-
-""" By Mai Hong Vu """
+    else:
+        num1 = int(s[0])*100 + int(s[1])*10 + int(s[2])     # Tính 3 số đầu
+        num2 = int(s[-3])*100 + int(s[-2])*10 + int(s[-1])      # Tính 3 số cuối 
+        print("YES" if prime(num1) and prime(num2) else "NO")
