@@ -1,22 +1,10 @@
 for _ in range(int(input())):
-    st = input()
-    check = 0
-    sum1 = 1
-    sum2 = 0
-    cnt = 0
-    for x in range(len(st)):
-        if x % 2 == 0:
-            check += 1
-            if int(st[x]) == 0:
-                cnt += 1
-            else:
-                sum1 *= int(st[x])
-        if x % 2 != 0:
-            sum2 += int(st[x])
-    print(sum1,end = ' ')
-    if check == cnt:
-        print(0)
-    else:
-        print(sum2)
-
-""" By Mai Hong Vu """
+    s = input()
+    tong = 0 # Đặt tổng = 0
+    tich = 1 # Đặt tích = 0
+    for x in range(len(s)): # Duyệt hết chuỗi
+        if x % 2 == 0 and int(s[x]) != 0: # Nếu đứng ở vị trí chẵn và khác 0 nhân vào tich
+            tich *= int(s[x])
+        elif x % 2 != 0:    # Đứng ở vị trí lẻ cộng vào tổng
+            tong += int(s[x])
+    print(tich,tong)
