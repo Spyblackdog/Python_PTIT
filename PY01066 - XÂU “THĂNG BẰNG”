@@ -1,0 +1,9 @@
+for _ in range(int(input())):
+    s1 = input()    # Nhập vào chuỗi input
+    s2 = s1[::-1]   # Đảo ngược chuỗi bằng cắt
+    check = True    # Dùng biến check để đánh dấu
+    for x in range(1,len(s1)):
+        if abs(ord(s1[x])-ord(s1[x-1])) != abs(ord(s2[x])-ord(s2[x-1])):    # Dùng ord để chuyển sang ASCII
+            check = False
+            break
+    print("YES" if check else "NO")
