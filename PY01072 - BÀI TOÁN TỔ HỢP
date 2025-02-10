@@ -1,27 +1,8 @@
-check = True
+from itertools import combinations
 
-def tohop(n,k,thislist,thislist2):
-    global check
-    for x in range(k):
-        print(thislist2[thislist[x]],end = ' ')
-    print()
-    j = k-1
-    while j >= 0 and thislist[j] == n - k + j:
-        j -= 1
-    if j >= 0:
-        thislist[j] += 1
-        for i in range(j+1,k):
-            thislist[i] = thislist[i-1] + 1
-    else:
-        check = False
+n, k = map(int, input().split())  # Đọc N và K
+s = list(map(int, input().split()))  # Chuyển input thành danh sách số nguyên
+s = sorted(set(s))  # Loại bỏ phần tử trùng và sắp xếp tăng dần
 
-N,K = [int(x) for x in input().split()]
-THISSET = set()
-for x in input().split():
-    THISSET.add(int(x))
-N = len(THISSET)
-THISLIST2 = list(THISSET)
-THISLIST2.sort()
-THISLIST = list(range(K))
-while check:
-    tohop(N,K,THISLIST,THISLIST2)
+for comb in combinations(s, k):  # Duyệt từng tổ hợp
+    print(" ".join(map(str, comb)))  # In tổ hợp ra dạng chuỗi số cách nhau bởi dấu cách
