@@ -1,27 +1,21 @@
-import math
+from math import sqrt # Từ thư viện math ta import sqrt()
 
-def prime(n):
-    if n <= 1:
+def prime(n): # Hàm dùng để kiểm tra xem một số có phải số nguyên tố hay không
+    if n <= 1: # Nếu số đó nhỏ hơn hoặc bằng 1 trả về False
         return False
-    for x in range(2,int(math.sqrt(n)+1)):
-        if n % x == 0:
+    for x in range(2,int(sqrt(n)+1)):   # Duyệt từ 2 đến căn bậc 2 của n vì sqrt() sẽ trả về số ở float ta cần chuyển về int
+        if n % x == 0:  # Nếu n chia hết cho x tức là có nhiều hơn 1 ước số trả về False
             return False
 
-    return True
+    return True     # Nếu chạy qua tất cả các điều kiện trên trả về True
 
-def check(n):
-    if prime(len(n)):
-        cnt = 0
-        for x in range(len(n)):
-            if prime(int(n[x])):
-                cnt += 1
-        if cnt > len(n)-1 - cnt:
-            print("YES")
-        else:
-            print("NO")
-    else:
-        print("NO")
-
-for _ in range(int(input())):
+for _ in range(int(input())):   # Duyệt tất cả các test
     s = input()
-    check(s)
+    if not prime(len(s)):  # Nếu độ dài chuỗi không phải số nguyên tố in ra NO
+        print("NO")
+    else:
+        num_prime = 0   # Khởi tạo một biến để đếm số chữ số nguyên tố trong s
+        for x in s:
+            if prime(int(x)):
+                num_prime += 1
+        print("YES" if num_prime > len(s)-num_prime else "NO")
