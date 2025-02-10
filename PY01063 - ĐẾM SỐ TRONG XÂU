@@ -1,15 +1,4 @@
 for _ in range(int(input())):
     s = input()
-    st = input()
-    n = 0
-    cnt = 0
-    while s.find(st,n) != -1:
-        print(s.find(st,n))
-        n = s.find(st,n)+len(st)
-        cnt += 1
-    print(cnt)
-""" By Mai Hong Vu """
-"""
-1 2 1 2 1 2 1 1 1 2 2  1  1  2  2  1  1  2  1
-0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
-"""
+    s1 = input()
+    print(s.count(s1)) # Dùng s.count(n) để đếm trong chuỗi s chuỗi con n xuất hiện bao nhiêu lần 
