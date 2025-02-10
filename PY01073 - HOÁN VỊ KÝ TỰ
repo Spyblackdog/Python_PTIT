@@ -1,8 +1,6 @@
 from itertools import permutations
 
-s = input()
-l = list(s)
-n = len(s)
-Thislist = permutations(l,n)
-for x in Thislist:
-    print(''.join(x))
+s = list(input()) # Chuyển input đầu vào thành list
+perm  = permutations(s) # Tạo một list bằng hàm permutations hàm sinh ra hoán vị
+for x in perm:
+    print("".join(x))   # In ra với "".join(x) nối các phần tử trong x với ""
