@@ -1,0 +1,8 @@
+n = int(input())
+s = list(map(int, input().split()))
+ans = 0
+for x in range(n):
+    for i in range(x+1,n):
+        if s[x] > s[i]:
+            ans += 1
+print(ans)
