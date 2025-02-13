@@ -1,0 +1,17 @@
+while True:
+    a = list([int (x) for x in input().split()])    # Tạo list a gồm các phần tử dạng int từ chuỗi ban đầu
+    if a[0] == a[1] == a[2] == a[3] and a[0]  != 0:     # Nếu list a gồm 4 số bằng nhau và khác 0 in ra 0
+        print(0)
+    elif a[0] == a[1] == a[2] == a[3] == 0:     # Nếu 4 số bằng 0 dừng chương trình
+        break
+    else:
+        cnt = 0     # Khởi tạo biến đếm
+        while (a[0] != a[1]) or (a[1] != a[2])  or (a[2] != a[3]):  # Chạy cho đến khi 4 số trong list có giá trị bằng nhau
+            cnt += 1    # Mỗi lần chạy cnt + 1
+            temp = a[0]     # Lưu phần tử đầu tiên trong list bằng temp để dùng cho phần tử cuối cùng
+            for i in range(len(a)):     # Duyệt lần lượt
+                if i != len(a)-1:       # Nếu i khác phần tử cuối cùng
+                    a[i] = abs(a[i]-a[i+1])     # Thay đổi a[i] = abs(a[i]-a[i+1])
+                elif i == len(a) - 1:   # Nếu là phần tử cuối cùng
+                    a[i] = abs(a[3] - temp)     # Thay đổi a[3] = abs(a[3] - temp)
+        print(cnt)
