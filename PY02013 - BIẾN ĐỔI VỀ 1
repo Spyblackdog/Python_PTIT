@@ -1,0 +1,17 @@
+while True:
+    a = set() # Tạo một set
+    n = int(input())    # Nhận vào input()
+    a.add(n)    # Thêm n vào set
+    if n == 0:  # Nếu n = 0 dừng chương trình
+        break
+    elif n == 1:    # Nếu n = 1 in luôn ra kết quả 1
+        print(1)
+    else:
+        while n != 1:   # Biến đổi cho đến khi n = 1
+            if n % 2 == 0:   # Nếu n là số chẵn n = n / 2
+                n = n // 2
+                a.add(n)    # Thêm n mới vào set
+            elif n % 2 != 0:    # Nếu n là số lẻ n = n*3 + 1
+                n = n*3 + 1
+                a.add(n)    # Thêm n mới vào set
+        print(len(a))       # In ra số phần tử của set
