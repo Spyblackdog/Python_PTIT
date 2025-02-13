@@ -1,0 +1,17 @@
+for _ in range(int(input())): # Thực hiện t testcase
+    n = int(input())    # Nhận vào input
+    s = list(map(int,input().split()))  # Tách chuỗi thành các phần tử int cấu trúc của map(function,iterable)
+    a = {}  # Tạo dictionaries
+    for x in s:
+        a[x] = a.get(x,0) + 1 # Nếu x chưa xuất hiện trong dict tạo x với value = 1
+    Max = -1e10     # Max để đánh dấu số lần xuất hiện nhiều nhất
+    ans = 1e10      # ans để ghi lại đáp án số xuất hiện nhiều nhất
+    for i in a:     # Duyệt hết dict a
+        if a[i] > Max or (a[i] == Max and i < ans): # Nếu value > Max hoặc bằng Max nhưng i có giá trị nhỏ hơn ans
+            ans = i     # Update giá trị ans = i (key)
+            Max = a[i]  # Max = a[i] (value của key i)
+    if Max > len(s)//2:     # Nếu Max lớn hơn N/2
+        print(ans)
+    else:
+        print("NO")
+
