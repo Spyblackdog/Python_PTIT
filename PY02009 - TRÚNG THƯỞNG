@@ -1,1 +1,13 @@
-Tự code lại vì submit mà chưa hiểu rõ vẫn AC
+for _ in range(int(input())): # Thực hiện t testcase
+    n = int(input())    # Nhận vào input
+    a ={}
+    for x in range(n):
+        m = int(input())
+        a[m] = a.get(m,0) + 1
+    Max = -1e10
+    ans = 1e10
+    for i in a:
+        if a[i] > Max or (a[i] == Max and i < ans):
+            Max = a[i]
+            ans = i
+    print(ans)
