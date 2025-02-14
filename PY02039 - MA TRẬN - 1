@@ -1,0 +1,22 @@
+n = int(input())
+if n > 2:
+    a = []
+    for x in range(n):
+        s = input()
+        a.append(list(map(int,s.split())))
+    k = int(input())
+    p_tren = 0
+    p_duoi = 0
+    for i in range(n):
+        for j in range(n):
+            if i != j and i < j:
+                p_tren += a[i][j]
+            elif i != j and i > j:
+                p_duoi += a[i][j]
+    ans = abs(p_tren - p_duoi)
+    if ans <= k:
+        print("YES")
+        print(ans)
+    else:
+        print("NO")
+        print(ans)
