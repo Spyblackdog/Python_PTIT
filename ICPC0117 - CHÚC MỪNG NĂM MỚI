@@ -1,0 +1,6 @@
+st = set()
+
+for _ in range(int(input())):
+    s = input()
+    st.add(s)
+print(len(st))
