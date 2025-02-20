@@ -1,0 +1,23 @@
+from math import sqrt
+
+def prime(n):
+    if n <= 1:
+        return False
+    for x in range(2,int(sqrt(n)+1)):
+        if n % x == 0:
+            return False
+
+    return True
+
+for _ in range(int(input())):
+    n = int(input())
+    ans = ""
+    mark = [True for j in range(n)]
+    for i in range(13,n):
+        if prime(i) and str(i) != str(i)[::-1] and int(str(i)[::-1]) < n and prime(int(str(i)[::-1])) and mark[i] == True:
+            ans += str(i) + " "
+            ans += str(i)[::-1] + " "
+            mark[i] = False
+            mark[int(str(i)[::-1])] = False
+    print(ans)
+
