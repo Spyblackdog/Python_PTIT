@@ -1,0 +1,15 @@
+from math import sqrt
+
+def prime(n):
+    if n <= 1:
+        return False
+    for x in range(2,int(sqrt(n)+1)):
+        if n % x == 0:
+            return False
+
+    return True
+
+for _ in range(int(input())):
+    s = input()
+    print("Yes" if prime(int(s)) and prime(int(s[::-1])) else "No")
+
