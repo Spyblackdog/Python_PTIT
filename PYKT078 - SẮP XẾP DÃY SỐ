@@ -1,0 +1,12 @@
+for _ in range(int(input())):
+    n,m = map(int,input().split())
+    a = list(map(int,input().split()))
+    a.insert(a.index(max(a)),m) # a.insert(số cần chèn,vị trí)
+    am = ""
+    duong = ""
+    for i in range(len(a)):
+        if a[i] < 0:
+            am += str(a[i]) + " "
+        elif a[i] >= 0:
+            duong += str(a[i]) + " "
+    print(am + duong)
