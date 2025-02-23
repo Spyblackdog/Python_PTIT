@@ -1,0 +1,39 @@
+with open("DATA.in", "r") as f:
+    line = [l.strip() for l in f.readlines() if l.strip()]
+
+t = int(line[0])
+index = 1
+
+for _ in range(t):
+    ans = ""
+    r = int(line[index])
+    x = line[index+1]
+    temp = 0
+    for i in range(len(x)):
+        temp += int(x[i])*(2**(len(x)-i-1))
+    if r == 2:
+        print(x)
+    elif r != 16:
+        while temp != 0:
+            ans = str(temp%r) + ans
+            temp //= r
+    elif r == 16:
+        while temp != 0:
+            res = temp%r
+            if res == 10:
+                ans = "A" + ans
+            elif res == 11:
+                ans = "B" + ans
+            elif res == 12:
+                ans = "C" + ans
+            elif res == 13:
+                ans = "D" + ans
+            elif res == 14:
+                ans = "E" + ans
+            elif res == 15:
+                ans = "F" + ans
+            else:
+                ans = str(res) + ans
+            temp //= r
+    index += 2
+    print(ans)
