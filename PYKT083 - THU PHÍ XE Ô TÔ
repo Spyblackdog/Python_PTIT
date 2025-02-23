@@ -1,0 +1,16 @@
+day = {}
+
+t = int(input())
+price = {'5':10000,'7':15000,'2':20000,'29':50000,'45':70000}
+
+for _ in range(t):
+    s = list(input().split())
+    ngay = s[4]
+    soghe = s[2]
+    huongdi = s[3]
+    if huongdi == "IN":
+        if soghe in price:
+            day[ngay] = day.get(ngay,0) + price[soghe]
+
+for ngay in day:
+    print(f"{ngay}: {day[ngay]}")
