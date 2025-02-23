@@ -1,0 +1,15 @@
+chude = {}
+
+temp = None
+
+for _ in range(int(input())):
+    s = input().strip() # strip() để xóa các khoảng trống đầu cuối các khoảng trống ở giữa không xóa 
+    if s == "":  # Nếu chuỗi sau khi xóa khoảng trống đầu cuối là rỗng thì đặt lại temp về None tức là chuẩn bị cho tạo một chủ đề mới
+        temp = None
+    elif s != "" and temp is None:  # Nếu chuỗi khác rỗng và temp = None tạo một chủ đề mới
+        temp = s
+        chude[temp] = 0 # Tạo chủ đề mới với số câu hỏi bằng 0
+    else:  # Nếu s khác rỗng và temp khác None thêm số câu hỏi và chủ đề đang duy trì
+        chude[temp] += 1
+for x in chude: # Dùng f string để in ra 
+    print(f"{x}: {chude[x]}")
