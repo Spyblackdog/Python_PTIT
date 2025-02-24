@@ -1,0 +1,19 @@
+def tong(n):
+    res = 0
+    for x in n:
+        res += int(x)
+
+    return res
+
+check = True
+while True:
+    s = input()
+    if s == "-1":
+        check = False
+        break
+    n,m = map(int,s.split())
+    cnt = 0
+    for i in range(n):
+        if tong(str(i)) == m:
+            cnt += 1
+    print(cnt)
