@@ -1,0 +1,21 @@
+def tong(n):
+    res = 0
+    for x in n:
+        res += int(x)
+
+    return res
+
+check = True
+while check:
+    s = input()
+    if s == "-1":
+        check = False
+        break
+    y,z = [int(x) for x in s.split()]
+    y = tong(str(y))
+    print(z//y)
+""" 
+y = y1y2y3y4...yn
+x = z / tổng các số của y
+x*y1 + x*y2 + ... + x*yn = z
+"""
