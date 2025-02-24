@@ -1,0 +1,12 @@
+bxh = {}
+
+for _ in range(int(input())):
+    s = input()
+    n,m = map(int,input().split())
+    a = list()
+    a.append(n)
+    a.append(m)
+    bxh[s] = a
+bxh_sort = dict(sorted(bxh.items(), key=lambda x: (-x[1][0], x[1][1], x[0]))) # Sắp xếp theo Lamba 
+for x in bxh_sort:
+    print(x,bxh_sort[x][0],bxh_sort[x][1])
