@@ -1,0 +1,5 @@
+while True:
+    s = input()
+    if s == "-1":
+        break
+    print("YES" if int(s) % 11 == 0 else "NO")
