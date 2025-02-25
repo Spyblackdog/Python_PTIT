@@ -1,0 +1,4 @@
+N = input()
+while len(N) > 1:
+    N = str(int(N[:len(N)//2])+int(N[len(N)//2:]))
+    print(N)
