@@ -1,0 +1,16 @@
+while True:
+    N = int(input())
+    if N == 0:
+        break
+    Max = -1e10
+    Min = 1e10
+    for _ in range(N):
+        n = int(input())
+        if n > Max:
+            Max = n
+        if n < Min:
+            Min = n
+    if Min != Max:
+        print(Min,Max)
+    else:
+        print("BANG NHAU")
