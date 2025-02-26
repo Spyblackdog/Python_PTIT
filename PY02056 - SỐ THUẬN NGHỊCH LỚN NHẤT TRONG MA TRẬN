@@ -1,0 +1,23 @@
+def check(n):
+    if len(str(n)) >= 2 and str(n) == str(n)[::-1]:
+        return True
+
+    return False
+
+n,m = map(int,input().split())
+a = []
+for _ in range(n):
+    a.append(list(map(int,input().split())))
+Max = -1e10
+for i in range(n):
+    for j in range(m):
+        if a[i][j] > Max and check(a[i][j]):
+            Max = a[i][j]
+if Max == -1e10:
+    print("NOT FOUND")
+else:
+    print(Max)
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] == Max:
+                print(f"Vi tri [{i}][{j}]")
