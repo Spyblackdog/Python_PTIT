@@ -1,0 +1,28 @@
+from math import sqrt
+
+def prime(N):
+    if N <= 1:
+        return False
+    for x in range(2,int(sqrt(N)+1)):
+        if N % x == 0:
+            return False
+
+    return True
+
+n,m = map(int,input().split())
+a = []
+for _ in range(n):
+    a.append(list(map(int,input().split())))
+Max = -1e10
+for i in range(n):
+    for j in range(m):
+        if a[i][j] > Max and prime(a[i][j]):
+            Max = a[i][j]
+if Max == -1e10:
+    print("NOT FOUND")
+else:
+    print(Max)
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] == Max:
+                print(f"Vi tri [{i}][{j}]")
