@@ -1,0 +1,11 @@
+N = int(input())
+a = list(map(int,input().split()))
+a.sort()
+print(max((a[-1]*a[-2]),(a[-1]*a[-2]*a[-3]),(a[-1]*a[0]*a[1]),(a[0]*a[1])))
+"""
+Tích lớn nhất sau khi sắp xếp dãy số : 
+Dãy số toàn dương: tích 2 số cuối hoặc 3 số cuối
+Dãy số toàn âm: Tích 2 số đầu 
+Dãy số âm + số dương: Tích 2 số cuối hoặc Tích 2 số đầu và 1 số cuối
+Tổng hợp max = Tích 2 số đầu, Tích 2 số cuối, Tích 3 số cuối, Tích 2 số đầu và 1 số cuối 
+"""
