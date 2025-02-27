@@ -1,0 +1,8 @@
+f = open("CONTACT.in")
+ans = set()
+for x in f:
+    temp = x.strip().lower()
+    ans.add(temp)
+ans_sorted = sorted(ans)
+for i in ans_sorted:
+    print(i)
