@@ -1,0 +1,6 @@
+n,m = map(int,input().split())
+a = set(map(int,input().split()))
+b = set(map(int,input().split()))
+a_s = list(sorted(a))
+b_s = list(sorted(b))
+print("YES" if a_s == b_s else "NO")
