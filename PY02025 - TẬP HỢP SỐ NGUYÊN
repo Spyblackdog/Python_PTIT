@@ -1,0 +1,11 @@
+n,m = map(int,input().split())
+A = set(map(str,input().split()))
+B = set(map(str,input().split()))
+AandB = list(A & B)
+A_B = list(A - B)
+B_A = list(B - A)
+AandB.sort()
+A_B.sort()
+B_A.sort()
+print(" ".join(AandB)," ".join(A_B)," ".join(B_A),sep = '\n')
+
