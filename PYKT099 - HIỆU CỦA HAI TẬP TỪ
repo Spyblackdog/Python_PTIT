@@ -1,0 +1,15 @@
+f1 = open("DATA1.in")
+f2 = open("DATA2.in")
+a = set()
+b = set()
+for x in f1:
+    for i in x.strip().split():
+        a.add(i.lower())
+for y in f2:
+    for j in y.strip().split():
+        b.add(j.lower())
+a_b = sorted(a-b)
+b_a = sorted(b-a)
+a_b.sort()
+b_a.sort()
+print(" ".join(a_b)," ".join(b_a),sep='\n')
