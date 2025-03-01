@@ -1,0 +1,17 @@
+a0,b0,c0 = map(int,input().split())
+a1,b1,c1 = map(int,input().split())
+ans = 0
+if a1 < a0:
+    h = (23-a0)*3600
+    p = (59-b0)*60
+    s = 59-c0
+    ans = h + p + s + 1
+    h = (a1 - 00)*3600
+    p = (b1 - 00)*60
+    s = c1 - 00
+    ans += h + p + s
+    print(ans)
+else:
+    batdau = a0 * 3600 + b0 * 60 + c0
+    ketthuc = a1 * 3600 + b1 * 60 + c1
+    print(ketthuc - batdau)
