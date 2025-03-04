@@ -1,0 +1,18 @@
+from math import gcd
+
+class Ps:
+    def __init__(self,tu,mau):
+        self.tu = tu
+        self.mau = mau
+    def tinhtoan(self,other):
+        temp = (self.mau*other.mau) // gcd(self.mau,other.mau)
+        tu1 = self.tu * (temp // self.mau)
+        tu2 = other.tu * (temp // other.mau)
+        tusomoi = tu1 + tu2
+        ans = gcd(temp,tusomoi)
+        print(f"{tusomoi//ans}/{temp//ans}")
+
+x1,y1,x2,y2 = map(int,input().split())
+p1 = Ps(x1,y1)
+p2 = Ps(x2,y2)
+Ps.tinhtoan(p1,p2)
