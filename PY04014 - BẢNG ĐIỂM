@@ -1,0 +1,48 @@
+cnt = 1
+
+class Hocsinh:
+    def __init__(self,ten,toan,van,anh,vl,hh,sh,ls,dl,gdcd,cn):
+        if cnt < 10:
+            self.mahs = "HS0" + str(cnt)
+        else:
+            self.mahs = "HS" + str(cnt)
+        self.ten = ten
+        self.toan = toan
+        self.van = van
+        self.anh = anh
+        self.vl = vl
+        self.hh = hh
+        self.sh = sh
+        self.ls = ls
+        self.dl = dl
+        self.gdcd = gdcd
+        self.cn = cn
+    def danhgia(self):
+        self.ans = (self.toan*2 + self.van*2 + self.anh + self.vl + self.hh + self.sh + self.ls + self.dl + self.gdcd + self.cn)/10/1.2
+        if self.ans > 9:
+            self.hocluc = "XUAT SAC"
+        elif 8 <= self.ans < 9:
+            self.hocluc = "GIOI"
+        elif 7 <= self.ans < 8:
+            self.hocluc = "KHA"
+        elif 5 <= self.ans <7:
+            self.hocluc = "TB"
+        else:
+            self.hocluc = "YEU"
+    def info(self):
+        return f"{self.mahs} {self.ten} {self.ans:.1f} {self.hocluc}"
+
+danhsach = []
+for _ in range(int(input())):
+    s = input()
+    a = list(map(float,input().split()))
+    p = Hocsinh(s,a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9])
+    danhsach.append(p)
+    cnt += 1
+for hs in danhsach:
+    hs.danhgia()
+
+danhsach.sort(key=lambda x: (-x.ans, x.mahs))
+
+for hs in danhsach:
+    print(hs.info())
