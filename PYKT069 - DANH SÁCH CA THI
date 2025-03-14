@@ -1,3 +1,4 @@
+# Version 1 không dùng datetime
 class Cathi:
     def __init__(self,id,ngay,gio,phong):
         self.id = id
@@ -32,6 +33,55 @@ for _ in range(T):
     Data.append(p)
 
 Data.sort(key = lambda x:(x.ngay,x.gio,x.id))
+
+for dt in Data:
+    print(dt.info())
+
+# Version 2 dùng datetime
+
+from datetime import datetime
+
+class Cathi:
+    def __init__(self,id,ngay,gio,phong):
+        self.id = id
+        self.ngay = ngay
+        self.gio = gio
+        self.phong = phong
+        self.date = datetime.strptime(ngay + " " + gio,"%d/%m/%Y %H:%M")
+        """
+        datetime là một module (thư viện) xử lý ngày và giờ trong Python, giúp bạn làm việc với ngày, giờ, thao tác 
+        tính toán thời gian, định dạng lại ngày giờ, v.v.
+        strptime() đọc ngày giờ từ chuỗi theo một định dạng nhất định.
+        strptime(date_str, "%d-%m-%Y %H:%M") Định dạng đúng
+        """
+    def info(self):
+        return f"{self.id} {self.ngay} {self.gio} {self.phong}"
+
+f = open("CATHI.in",'r')
+lines = f.readlines()
+
+T = int(lines[0].strip())
+n = 1
+Data = []
+
+for _ in range(T):
+    id = ""
+    if _ < 9:
+        id = "C00" + str(_ + 1)
+    elif _ < 99:
+        id = "C0" + str(_ + 1)
+    else:
+        id = "C" + str(_ + 1)
+    ngay = lines[n].strip()
+    n += 1
+    gio = lines[n].strip()
+    n += 1
+    phong = lines[n].strip()
+    n += 1
+    p = Cathi(id,ngay,gio,phong)
+    Data.append(p)
+
+Data.sort(key = lambda x:(x.date,x.id))
 
 for dt in Data:
     print(dt.info())
