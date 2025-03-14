@@ -1,0 +1,26 @@
+class Sanpham:
+    def __init__(self,id,ten,sl,gia,chietkhau):
+        self.id = id
+        self.ten = ten
+        self.sl = sl
+        self.gia = gia
+        self.chietkhau = chietkhau
+        self.tongtien = (self.sl * self.gia) - self.chietkhau
+    def info(self):
+        return f"{self.id} {self.ten} {self.sl} {self.gia} {self.chietkhau} {self.tongtien}"
+
+t = int(input())
+Data = []
+for _ in range(t):
+    Id = input()
+    Name = input()
+    Sl = int(input())
+    Cost = int(input())
+    Ck = int(input())
+    p = Sanpham(Id,Name,Sl,Cost,Ck)
+    Data.append(p)
+
+Data.sort(key = lambda x:-x.tongtien)
+
+for sp in Data:
+    print(sp.info())
