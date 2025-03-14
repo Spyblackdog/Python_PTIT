@@ -1,0 +1,44 @@
+class Taydua:
+    def __init__(self,id,ten,diachia,vantoc):
+        self.id = id
+        self.ten = ten
+        self.diachia = diachia
+        self.vantoc = vantoc
+    def info(self):
+        return f"{self.id} {self.ten} {self.diachia} {round(self.vantoc)} Km/h"
+
+t = int(input())
+Data = []
+
+for _ in range(t):
+    s = input()
+    adr = input()
+    time = input()
+    s1 = list(s.split())
+    s2 = list(adr.split())
+    id = ""
+    for i in s2:
+        id += i[0]
+    for j in s1:
+        id += j[0]
+    h = 0
+    p = 0
+    if len(time) == 4:
+        h = int(time[0])
+        p = int(time[2])*10 + int(time[3])
+    elif len(time) == 5:
+        h = int(time[0])*10 + int(time[1])
+        p = int(time[3]) * 10 + int(time[4])
+    if p != 0 and h < 6:
+        h -= 1
+        h = (24 - 6) + h + (p/60)
+    else:
+        h = (h - 6) + (p/60)
+    v = 120/h
+    p = Taydua(id,s,adr,v)
+    Data.append(p)
+
+Data.sort(key=lambda x:-x.vantoc)
+
+for td in Data:
+    print(td.info())
