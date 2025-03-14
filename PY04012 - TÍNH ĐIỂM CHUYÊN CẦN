@@ -1,0 +1,38 @@
+class Sinhvien:
+    def __init__(self,msv,ten,lop):
+        self.msv = msv
+        self.ten = ten
+        self.lop = lop
+    def update(self,diemck):
+        self.diemck = diemck
+        if diemck == 0:
+            self.ghichu = "KDDK"
+        else:
+            self.ghichu = ""
+    def info(self):
+        return f"{self.msv} {self.ten} {self.lop} {self.diemck} {self.ghichu}"
+
+t = int(input())
+Data = {}
+
+for _ in range(t):
+    msv = input()
+    ten = input()
+    lop = input()
+    Data[msv] = Sinhvien(msv,ten,lop)
+
+for x in range(t):
+    s = input()
+    s1,s2 = s.split()
+    cnt = 10
+    for i in s2:
+        if i == "m":
+            cnt -= 1
+        elif i == "v":
+            cnt -= 2
+    if cnt < 0:
+        cnt = 0
+    Data[s1].update(cnt)
+
+for sv in Data.values():
+    print(sv.info())
