@@ -1,0 +1,37 @@
+class Thisinh:
+    def __init__(self,ma,ten,mon,diem):
+        self.ma = ma
+        self.ten = ten
+        self.mon = mon
+        self.diem = diem
+        if self.diem > 18:
+            self.ketqua = "TRUNG TUYEN"
+        else:
+            self.ketqua = "LOAI"
+    def info(self):
+        return f"{self.ma} {self.ten} {self.mon} {self.diem:.1f} {self.ketqua}"
+
+
+t = int(input())
+Data = []
+
+for _ in range(t):
+    s = input()
+    ma = input()
+    tin = float(input())
+    chuyenmon = float(input())
+    stt = ""
+    if  _ < 9:
+        stt = "GV0" + str(_ + 1)
+    else:
+        stt = "GV" + str(_ + 1)
+    mon = {"A":"TOAN","B":"LY","C":"HOA"}
+    diemuutien = {"1":2.0,"2":1.5,"3":1.0,"4":0.0}
+    diemtb = tin*2 + chuyenmon + diemuutien[ma[1]]
+    p = Thisinh(stt,s,mon[ma[0]],diemtb)
+    Data.append(p)
+
+Data.sort(key = lambda x:(-x.diem))
+
+for ts in Data:
+    print(ts.info())
