@@ -1,0 +1,37 @@
+cnt = 1
+
+class Khachhang:
+    def __init__(self,ten,use):
+        if cnt < 10:
+            self.makh = "KH0" + str(cnt)
+        else:
+            self.makh = "KH" + str(cnt)
+        self.ten = ten
+        self.use = use
+    def tinhtoan(self):
+        if self.use > 100:
+            self.tien = (50*100 + 50*150 + (self.use - 100)*200)*1.05
+        elif self.use > 50:
+            self.tien = (50 * 100 + (self.use - 50) * 150) * 1.03
+        else:
+            self.tien = (self.use * 100) * 1.02
+    def info(self):
+        return (f"{self.makh} {self.ten} {round(self.tien)}")
+
+t = int(input())
+Data = []
+for _ in range(t):
+    s = input()
+    u1 = int(input())
+    u2 = int(input())
+    p = Khachhang(s,u2 - u1)
+    Data.append(p)
+    cnt += 1
+
+for x in range(t):
+    Data[x].tinhtoan()
+
+Data.sort(key=lambda x: (-x.tien, x.makh))
+
+for dt in Data:
+    print(dt.info())
