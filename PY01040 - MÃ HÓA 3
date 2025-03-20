@@ -1,0 +1,28 @@
+def mahoa1(s1,s2):
+    cnt1 = 0
+    cnt2 = 0
+    for x in s1:
+        cnt1 += ord(x)-65
+    for y in s2:
+        cnt2 += ord(y)-65
+    s1 = list(s1)
+    s2 = list(s2)
+    for i in range(len(s1)):
+        s1[i] = chr(65+(ord(s1[i])+(cnt1 % 26)-65)%26)
+    for i in range(len(s2)):
+        s2[i] = chr(65+(ord(s2[i])+(cnt2 % 26)-65)%26)
+
+    return s1,s2
+
+def mahoa2(s1,s2):
+    for x in range(len(s1)):
+        s1[x] = chr(65+((ord(s1[x]) + (ord(s2[x])-65))-65)%26)
+    return "".join(s1)
+
+for _ in range(int(input())):
+    s = input()
+    n = len(s)
+    s1 = s[0:n//2]
+    s2 = s[n//2:n+1]
+    s1,s2 = mahoa1(s1,s2)
+    print(mahoa2(s1,s2))
