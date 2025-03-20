@@ -1,0 +1,10 @@
+def dichuyen(n,goc,dich,trunggian):
+    if n == 1:
+        print(f"{goc} -> {dich}")
+        return
+    dichuyen(n-1,goc,trunggian,dich)
+    print(f"{goc} -> {dich}")
+    dichuyen(n-1,trunggian,dich,goc)
+
+n = int(input())
+dichuyen(n,'A','C','B')
