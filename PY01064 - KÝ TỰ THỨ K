@@ -1,0 +1,12 @@
+for _ in range(int(input())):
+    n,k = map(int,input().split())
+    ans = "ABA"
+    for i in range(n-1):
+        ans = ans + chr(67 + i) + ans
+    print(ans[k-1])
+"""
+1. ABA
+2. ABACABA
+3. ABACABADABACABA
+4. ABACABADABACABAEABACABADABACABA
+"""
