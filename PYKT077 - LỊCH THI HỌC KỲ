@@ -1,0 +1,39 @@
+from datetime import datetime
+
+class Lichthi:
+    def __init__(self,id,mamon,tenmon,date,sonhom):
+        self.id = id
+        self.mamon = mamon
+        self.tenmon = tenmon
+        self.date = date
+        self.sonhom = sonhom
+    def info(self):
+        date_str = self.date.strftime("%d/%m/%Y %H:%M")
+        return f"{self.id} {self.mamon} {self.tenmon} {date_str} {self.sonhom}"
+
+Data1 = {}
+Data = []
+n,m = map(int,input().split())
+for _ in range(n):
+    s1 = input()
+    s2 = input()
+    Data1[s1] = s2
+for x in range(m):
+    if x < 9:
+        id = "T00" + str(x + 1)
+    elif x < 99:
+        id = "T0" + str(x + 1)
+    else:
+        id = "T" + str(x + 1)
+    s3 = list(input().split())
+    mamon = s3[0].strip()
+    d = f"{s3[1].strip()} {s3[2].strip()}"
+    date = datetime.strptime(d,"%d/%m/%Y %H:%M")
+    nhom = s3[3].strip()
+    p = Lichthi(id,mamon,Data1[mamon],date,nhom)
+    Data.append(p)
+
+Data.sort(key = lambda x: (x.date,x.mamon))
+
+for dt in Data:
+    print(dt.info())
