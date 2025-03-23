@@ -1,0 +1,41 @@
+class Thisinh:
+    def __init__(self,id,ten,diem,ketqua):
+        self.id = id
+        self.ten = ten
+        self.diem = diem
+        self.ketqua = ketqua
+    def info(self):
+        return f"{self.id} {self.ten} {self.diem:.1f} {self.ketqua}"
+
+uutien = {'1':1.5,'2':1.0,'3':0.0}
+Data = []
+n = int(input())
+for _ in range(n):
+    if _ < 9:
+        id = "TS0" + str(_ + 1)
+    else:
+        id = "TS" + str(_ + 1)
+    s = list(input().split())
+    ten = ""
+    for x in range(len(s)):
+        s[x] = s[x].lower()
+        s[x] = s[x].capitalize()
+        ten += s[x].strip() + " "
+    diem = float(input())
+    dantoc = input().strip()
+    khuvuc = input().strip()
+    diemuutien = 0
+    if  dantoc != "Kinh":
+        diemuutien = 1.5
+    diemxet = diem + diemuutien + uutien[khuvuc]
+    if diemxet >= 20.5:
+        kq = "Do"
+    else:
+        kq = "Truot"
+    p = Thisinh(id,ten,diemxet,kq)
+    Data.append(p)
+
+Data.sort(key=lambda x:(-x.diem,x.id))
+
+for dt in Data:
+    print(dt.info())
