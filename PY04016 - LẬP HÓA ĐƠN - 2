@@ -1,0 +1,35 @@
+from datetime import datetime
+
+class Hoadon:
+    def __init__(self,id,ten,sophong,ngay,tien):
+        self.id = id
+        self.ten = ten
+        self.sophong = sophong
+        self.ngay = ngay
+        self.tien = tien
+    def info(self):
+        return f"{self.id} {self.ten} {self.sophong} {self.ngay} {self.tien}"
+
+giaphong = {'1':25,'2':34,'3':50,'4':80}
+Data = []
+n = int(input())
+for _ in range(n):
+    if _ < 9:
+        id = "KH0" + str(_ + 1)
+    else:
+        id = "KH" + str(_ + 1)
+    s = input()
+    sophong = input()
+    ngaynhan = datetime.strptime(input().strip(),"%d/%m/%Y")
+    ngaytra = datetime.strptime(input().strip(),"%d/%m/%Y")
+    phuphi = int(input())
+    day = (ngaytra - ngaynhan).days + 1
+    tongtien =(day*giaphong[sophong[0]]) + phuphi
+    p = Hoadon(id,s,sophong,day,tongtien)
+    Data.append(p)
+
+Data.sort(key = lambda x: -x.tien)
+
+for dt in Data:
+    print(dt.info())
+# Lưu ý thêm strip() vào sau input nhập ngày tháng để đúng định dạng
