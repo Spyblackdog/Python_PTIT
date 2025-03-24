@@ -1,0 +1,55 @@
+class Tiendien:
+    def __init__(self,id,ten,dinhmuc,vuotdm,vat,tien):
+        self.id = id
+        self.ten = ten
+        self.dinhmuc = dinhmuc
+        self.vuotdm = vuotdm
+        self.vat = vat
+        self.tien = tien
+    def info(self):
+        return f"{self.id}  {self.ten} {self.dinhmuc} {self.vuotdm} {self.vat} {self.tien}"
+
+kh = {'A':100,'B':500,'C':200}
+
+def chuanhoa(s):
+    a = list(s.split())
+    chuan = ""
+    for x in range(len(a)):
+        a[x] = a[x].lower()
+        a[x] = a[x].capitalize()
+        chuan += a[x] + " "
+    return chuan.strip()
+
+Data = []
+n = int(input())
+for _ in range(n):
+    if _ < 9:
+        id = "KH0" + str(_ + 1)
+    else:
+        id = "KH" + str(_ + 1)
+    ten = input()
+    ten = chuanhoa(ten)
+    a = input().split()
+    dinhmuc = kh[a[0]]
+    tiendinhmuc = 0
+    tienvuotdm = 0
+    tienVat = 0
+    tongtien = 0
+    sudung = int(a[2].strip()) - int(a[1].strip())
+    if sudung < dinhmuc:
+        tiendinhmuc = sudung*450
+        tienvuotdm = 0
+        tienVAT = 0
+        tongtien = tiendinhmuc + tienvuotdm + tienVat
+    elif sudung >= dinhmuc:
+        tiendinhmuc = dinhmuc*450
+        tienvuotdm = (sudung - dinhmuc)*1000
+        tienVat = int(tienvuotdm // 20)
+        tongtien = tiendinhmuc + tienvuotdm + tienVat
+    p = Tiendien(id,ten,tiendinhmuc,tienvuotdm,tienVat,tongtien)
+    Data.append(p)
+
+Data.sort(key = lambda x:-x.tien)
+
+for dt in Data:
+    print(dt.info())
