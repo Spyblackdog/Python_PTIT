@@ -1,0 +1,52 @@
+A = {'a':10,'b':12,'c':14,'d':20}
+B = {'a':10,'b':11,'c':13,'d':16}
+C = {'a':9,'b':10,'c':12,'d':14}
+D = {'a':8,'b':9,'c':11,'d':13}
+
+
+anhxa = {'A':A,'B':B,'C':C,'D':D}
+
+def quydoi(s):
+    sonamcongtac = int(s[1])*10 + int(s[2])
+    if 1 <= sonamcongtac <= 3:
+        return 'a'
+    elif 4 <= sonamcongtac <= 8:
+        return 'b'
+    elif 9 <= sonamcongtac <= 15:
+        return 'c'
+    elif sonamcongtac >= 16:
+        return 'd'
+
+class Nhanvien:
+    def __init__(self,id,ten,phongban,luong):
+        self.id = id
+        self.ten = ten
+        self.phongban = phongban
+        self.luong = luong
+    def info(self):
+        return f"{self.id} {self.ten} {self.phongban} {self.luong}"
+
+n = int(input())
+Data1 = {}
+Data = []
+for _ in range(n):
+    s = input()
+    a = s[:2].strip()
+    b = s[3:].strip()
+    Data1[a] = b
+N = int(input())
+for x in range(N):
+    id = input()
+    ten = input()
+    luongcb = int(input())
+    songaycong = int(input())
+    phongban = Data1[id[-2:]]
+    sonamcongtac = quydoi(id)
+    maso = anhxa[id[0]]
+    tongluong = luongcb*1000*songaycong*maso[sonamcongtac]
+    p = Nhanvien(id,ten,phongban,tongluong)
+    Data.append(p)
+
+for dt in Data:
+    print(dt.info())
+
