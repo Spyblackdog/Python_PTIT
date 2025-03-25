@@ -1,0 +1,42 @@
+class Thisinh:
+    def __init__(self,id,ten,team,truong):
+        self.id = id
+        self.ten = ten
+        self.team = team
+        self.truong = truong
+    def info(self):
+        return f"{self.id} {self.ten} {self.team} {self.truong}"
+
+Data = []
+Data1 = {}
+n = int(input())
+for _ in range(n):
+    a = []
+    if _ < 9:
+        id1 = "Team0" + str(_ + 1)
+    else:
+        id1 = "Team" + str(_ + 1)
+    team = input()
+    truong = input()
+    a.append(team)
+    a.append(truong)
+    Data1[id1] = a
+m = int(input())
+for x in range(m):
+    if x < 9:
+        id = "C00" + str(x + 1)
+    elif x < 99:
+        id = "C0" + str(x + 1)
+    else:
+        id = "C" + str(x + 1)
+    s = input()
+    t = input()
+    team = Data1[t][0]
+    truong = Data1[t][1]
+    p = Thisinh(id,s,team,truong)
+    Data.append(p)
+
+Data.sort(key=lambda x:x.ten)
+
+for dt in Data:
+    print(dt.info())
