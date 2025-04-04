@@ -1,0 +1,44 @@
+def bdmin(n,p,q):
+    temp = 0
+    for x in n:
+        if x == p:
+            temp = temp*10 + int(q)
+        else:
+            temp = temp*10 + int(x)
+
+    return temp
+
+def bdmax(n,p,q):
+    temp = 0
+    for x in n:
+        if x == q:
+            temp = temp*10 + int(p)
+        else:
+            temp = temp*10 + int(x)
+
+    return temp
+
+
+for _ in range(int(input())):
+    p,q = input().split()
+    if p < q:
+        p,q = q,p
+    s = input().split()
+    if len(s) > 1:
+        s1,s2 = s[0],s[1]
+    else:
+        s1 = s[0]
+        s2 = input()
+    Min = Max = int(s1) + int(s2)
+    s11 = bdmax(s1,p,q)
+    s21 = bdmax(s2,p,q)
+    if s11 + s21 > Max:
+        Max = s11 + s21
+    s12 = bdmin(s1,p,q)
+    s22 = bdmin(s2,p,q)
+    if s12 + s22 < Min:
+        Min = s12 + s22
+    print(Min,Max)
+
+
+# Mặc định p > q
